@@ -1,8 +1,8 @@
+import '../navigation/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'apod_theme.dart';
-import 'home_page.dart';
 import 'models/models.dart';
 
 void main() {
@@ -18,14 +18,15 @@ class ApodApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => JournalManager()),
-        ChangeNotifierProvider(create: (context) => appStateManager),     
+        ChangeNotifierProvider(create: (context) => appStateManager),
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
         title: 'APOD',
         theme: ApodTheme.light(),
         darkTheme: ApodTheme.dark(),
         debugShowCheckedModeBanner: false,
-        home: const HomePage(title: 'Astronomy Picture of the Day'),
+        routerDelegate: goRouter.routerDelegate,
+        routeInformationParser: goRouter.routeInformationParser,
       ),
     );
   }
