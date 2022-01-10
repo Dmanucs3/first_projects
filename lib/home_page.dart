@@ -1,6 +1,6 @@
-import 'package:navigationn/features/current_apod/current_apod_page.dart';
-import 'package:navigationn/features/favorite_apods/favorites_apod_page.dart';
-import 'package:navigationn/features/recent_apods/recent_apod_page.dart';
+import '../features/current_apod/current_apod_page.dart';
+import '../features/favorite_apods/favorites_apod_page.dart';
+import '../features/recent_apods/recent_apod_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,6 +11,11 @@ class HomePage extends StatefulWidget {
   const HomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
+
+  static Page page({LocalKey? key}) => MaterialPage<void>(
+        key: key,
+        child: const HomePage(title: 'Astronomy Picture of the Day'),
+      );
 
   @override
   State<HomePage> createState() => _HomePageState();
