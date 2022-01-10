@@ -18,7 +18,7 @@ class ApodApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => JournalManager()),
-        ChangeNotifierProvider(create: (context) => appStateManager),
+        ChangeNotifierProvider(create: (context) => appStateManager),     
       ],
       child: MaterialApp(
         title: 'APOD',
